@@ -2,4 +2,3 @@ node_modules
 coverage
 build
 npm-debug.log*
-package-lock.json
