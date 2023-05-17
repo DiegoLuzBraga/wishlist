@@ -1,7 +1,10 @@
-import React from "react";
+import { Header } from "../components/Header";
 
 export const Home = () => {
-    return (<div>
-        Lista de produtos
-    </div>);
+  return (
+    <div>
+      <Header />
+      Lista de produtos
+    </div>
+  );
 };

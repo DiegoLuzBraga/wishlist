@@ -1,7 +1,10 @@
+import { Header } from "../components/Header";
+
 export const Cart = () => {
-    return (
-        <div>
-            Carrinho
-        </div>
-    );
+  return (
+    <div>
+      <Header />
+      Carrinho
+    </div>
+  );
 };
