@@ -17,6 +17,7 @@ export const SearchBar = ({ searchQuery, setSearchQuery }: Props) => (
       width: "100%",
     }}
     InputProps={{
+      value: searchQuery,
       startAdornment: <SearchIcon />,
       endAdornment: searchQuery ? (
         <S.Clear onClick={() => setSearchQuery("")} />

@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
 import { CustomBreadcrumbs } from "../components/Breadcrumbs";
-import { CustomLoading } from "../components/CustomLoading";
 import { Header } from "../components/Header";
 import { ProductCard } from "../components/ProductCard";
-import { useProductsVM } from "../viewModels/useProductsVM";
+import { useWishlistVM } from "../viewModels/useWishlistVM";
+import { useSearch } from "../viewModels/useSearch";
 import * as S from "./HomeStyles";
 
 export const Cart = () => {
-  const { products, loading } = useProductsVM();
+  const { wishlist } = useWishlistVM();
+  const searchParams = useSearch();
   return (
     <>
-      <Header />
+      <Header {...searchParams} />
       <S.HomeContainer>
         <CustomBreadcrumbs
           breadcrumbs={[
@@ -17,14 +19,29 @@ export const Cart = () => {
             { title: "Lista de desejos" },
           ]}
         />
-        {loading ? (
-          <CustomLoading />
-        ) : (
+        {wishlist.length ? (
           <S.ProductCardContainer>
-            {products?.products.map((product) => {
-              return <ProductCard product={product} key={product.sku} />;
-            })}
+            {wishlist
+              .filter((item) =>
+                item.title
+                  .toLocaleLowerCase()
+                  .includes(searchParams.searchQuery.toLocaleLowerCase())
+              )
+              .map((product) => {
+                return (
+                  <ProductCard product={product} key={product.sku} isCartView />
+                );
+              })}
           </S.ProductCardContainer>
+        ) : (
+          <S.NoContentContainer>
+            <p>
+              Parece que você não possui nenhum produto em sua lista de desejos
+            </p>
+            <p>
+              O que acha de buscar algum clicando <Link to="/">aqui</Link>?
+            </p>
+          </S.NoContentContainer>
         )}
       </S.HomeContainer>
     </>

@@ -1,12 +1,17 @@
-import { TextWithIcon } from "../TextWithIcon";
+import { useNavigate } from "react-router-dom";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { TextWithIcon } from "../TextWithIcon";
 import { SearchBar } from "../SearchBar";
 import * as S from "./styles";
-import { useNavigate } from "react-router-dom";
 
-export const Header = () => {
+interface HeaderProps {
+  searchQuery: string;
+  setSearchQuery: (value: string) => void;
+}
+
+export const Header = ({ searchQuery, setSearchQuery }: HeaderProps) => {
   const navigate = useNavigate();
   return (
     <S.Container>
@@ -24,7 +29,7 @@ export const Header = () => {
             onClick={() => navigate("/cart")}
           />
         </S.InfoContainer>
-        <SearchBar searchQuery="" setSearchQuery={console.log} />
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </S.HeaderAside>
     </S.Container>
   );

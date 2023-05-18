@@ -17,4 +17,5 @@ export interface ProductInfo {
   currencyFormat: string;
   isFreeShipping: true;
   image: string;
+  isWished: boolean;
 }

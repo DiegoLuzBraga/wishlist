@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { getProducts } from "../models/productsModel";
 import { Products } from "../types/products";
 import { useNotificationVM } from "./useNotificationVM";
+import { formatProduct } from "../utils/formatters";
+import { useWishlistVM } from "./useWishlistVM";
 
 export const useProductsVM = () => {
+  const { wishlist } = useWishlistVM();
   const { setNotification } = useNotificationVM();
-  const [products, setProducts] = useState<Products | null>(null);
+  const [allProducts, setAllProducts] = useState<Products>({ products: [] });
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     loadProducts();
@@ -15,8 +18,9 @@ export const useProductsVM = () => {
     try {
       setLoading(true);
       const response = await getProducts();
-      const allProducts = await response.json();
-      setProducts(allProducts);
+      const productsResponse: Products = await response.json();
+      const formated = formatProduct(productsResponse, wishlist);
+      setAllProducts({ products: [...formated] });
     } catch (error) {
       setNotification({
         open: true,
@@ -28,6 +32,10 @@ export const useProductsVM = () => {
       setLoading(false);
     }
   };
+
+  const products: Products = useMemo(() => {
+    return { products: [...formatProduct(allProducts, wishlist)] };
+  }, [wishlist, allProducts]);
 
   return {
     products,
