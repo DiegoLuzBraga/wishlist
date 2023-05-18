@@ -5,12 +5,21 @@ export const Container = styled("header")({
   color: "white",
   display: "flex",
   padding: "32px",
+  "@media only screen and (max-width: 850px)": {
+    flexDirection: "column",
+    alignItems: "center",
+  },
 });
 
 export const MainTitle = styled("h1")({
   fontWeight: "bold",
   fontSize: "32px",
   width: "30%",
+  cursor: "pointer",
+  "@media only screen and (max-width: 850px)": {
+    marginBottom: "16px",
+    width: "auto",
+  },
 });
 
 export const HeaderAside = styled("div")({

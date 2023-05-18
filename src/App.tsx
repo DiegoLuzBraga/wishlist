@@ -1,25 +1,21 @@
-import React, { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
-import { routes } from "./routes";
 import { GlobalStyles, ThemeProvider, createTheme } from "@mui/material";
+import { WishlistProvider } from "./viewModels/useWishlistVM";
+import { routes } from "./routes";
+import { globalStyles } from "./globalStyles";
+import { NotificationProvider } from "./viewModels/useNotificationVM";
 
 function App() {
   const theme = createTheme();
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles
-        styles={{
-          "*": { margin: 0, padding: 0, boxSizing: "border-box" },
-          body: {
-            height: "100%",
-            fontFamily:
-              "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-          },
-          html: { height: "100%" },
-        }}
-      />
-      <RouterProvider router={routes} />
+      <GlobalStyles styles={globalStyles} />
+      <WishlistProvider>
+        <NotificationProvider>
+          <RouterProvider router={routes} />
+        </NotificationProvider>
+      </WishlistProvider>
     </ThemeProvider>
   );
 }

@@ -8,7 +8,7 @@ interface Props {
 
 export const TextWithIcon = ({ icon, text, onClick }: Props) => {
   return (
-    <S.Container onClick={onClick}>
+    <S.Container onClick={onClick} isClickable={onClick !== undefined}>
       {icon} <p>{text}</p>
     </S.Container>
   );
