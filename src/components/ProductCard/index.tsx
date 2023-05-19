@@ -21,6 +21,7 @@ export const ProductCard = ({ product, isCartView }: ProductCardProps) => {
     action = (
       <S.CancelContainer>
         <CancelOutlinedIcon
+          data-testid="cancel-button"
           onClick={() => removeFromWhislist(product.sku.toString())}
           sx={{ cursor: "pointer" }}
         />
