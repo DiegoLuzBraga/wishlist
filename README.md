@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+## Wishlist
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :arrow_forward: Como executar
 
-## Available Scripts
+1. Tenha certeza de que tem [instalado o npm na sua máquina](https://dicasdejavascript.com.br/instalacao-do-nodejs-e-npm-no-windows-passo-a-passo/#:~:text=Para%20verificar%20se%20o%20node,comando%20conforme%20a%20imagem%20abaixo.).
+2. Após isso, pelo terminal, vá até o diretório onde baixou o projeto;
+3. Agora, execute o comando `npm i` para baixar todas as dependências do projeto;
+4. Importante! Crie um arquivo `.env.development` antes e adicione a URL desejada com o nome de `REACT_APP_API_URL="URL da api"`. Por questões de segurança, esse arquivo não é vercionado!
+5. Após a instalação das dependências, execute o comando `npm run start` e será aberta uma aba no seu navegador padrão com o endereço [http://localhost:3000/](http://localhost:3000/);
+6. A aplicação necessita de internet para funcionar;
 
-In the project directory, you can run:
+## :computer: Tecnologias utilizadas
 
-### `npm start`
+**Bibliotecas**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React;
+- Typescript;
+- MVVM;
+- Material UI;
+- jest;
+- react testing library;
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Linguagem**: Javascript
 
-### `npm test`
+**Arquitetura:** MVVM
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :scroll: Features
 
-### `npm run build`
+- [x] Apresentação da listagem de produtos utilizando consumo de uma API.
+- [x] Possibilidade de adicionar à lista de desejos.
+- [x] Página da lista de desejos com possibilidade de remover os produtos adicionados.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :thought_balloon: Será que esqueci alguma coisa?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Caso tenha alguma dúvida, sugestão ou melhoria, pode entrar em contato comigo pelas minhas redes sociais! (ou abrir um PR!).
